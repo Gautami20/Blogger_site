@@ -1,0 +1,58 @@
+
+    <%- include("partials/nav.ejs") %>
+    <html>
+        <head>
+            <style>
+                .main-card{
+                    display: grid;
+                    grid-template-columns: 35rem 35rem 35rem;
+                    padding: 10px;
+
+                    gap: 10px;
+                }
+                .card{                    
+                    height: 15rem;
+                    width: 35rem;
+                    display: grid;
+                    grid-template-columns: 23rem 10rem;
+                    background-color: #39a0f553;
+                    padding: 5px;
+                }
+
+            </style>
+        </head>
+    <body>
+        <% if(locals.posts){ %>
+        <h1>Blog Posts</h1>
+        <div class="main-card">
+            <% posts.forEach(post=> { %>
+                <div class='card'>
+                        <div class="info">
+                        <h2>
+                            <%= post.title %>
+                        </h2>
+                        <p>
+                            <%= post.content %>
+                        </p>
+                        </div>
+
+                        <div class="button">
+                            <form action="/delete/<%= post.id %>" method="POST">
+                            <button type="submit">Delete</button>
+                            </form>
+                            <form action="/update/<%= post.id %>" method="get">
+                            <button type="submit">Update</button>
+                            </form>
+                        </div>
+                </div>
+                        <% }); %>
+                    </div>
+        <% } else{ %>
+            <h1>Home Page</h1>
+        <% } %>
+        <a href="/newBlog">Create New Post</a>
+    </body>
+    
+    </html>
+
+    <%- include('partials/footer.ejs') %>

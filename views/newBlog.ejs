@@ -1,0 +1,8 @@
+<%- include('partials/nav.ejs') %>
+    <h1>Create New BLog!</h1>
+    <form action="/newBlog" method="POST">
+        <input type="text" name="title" id="title" class="feedback-input" placeholder="Blog Title"  required/>
+        <textarea name="content" id="content" class="feedback-input" placeholder="Comment" required></textarea>
+        <input type="submit" value="SUBMIT" />
+    </form>
+<%- include('partials/footer.ejs') %>

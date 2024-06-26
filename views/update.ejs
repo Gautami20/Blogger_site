@@ -1,0 +1,8 @@
+<%- include("partials/nav.ejs") %>
+<h1> Update BLog!</h1>
+<form action="/update/<%= post.id %>" method="POST">
+    <input type="text" name="title" id="title" class="feedback-input" value="<%= post.title %>" required />
+    <textarea name="content" id="content" class="feedback-input" required><%= post.content %></textarea>
+    <input type="submit" value="SUBMIT" />
+</form>
+<%- include("partials/footer.ejs") %>
